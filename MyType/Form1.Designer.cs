@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnCreate1 = new Button();
-            btnCreate2 = new Button();
             label1 = new Label();
             txtNum1 = new TextBox();
             txtDen1 = new TextBox();
@@ -44,42 +42,21 @@
             label7 = new Label();
             txtFr1 = new TextBox();
             txtFr2 = new TextBox();
-            btnSum = new Button();
-            btnMinus = new Button();
-            btnUmn = new Button();
-            btnDel = new Button();
             btnCleanNum1 = new Button();
             btnCleanDen1 = new Button();
             btnCleanNum2 = new Button();
             btnCleanDen2 = new Button();
-            btnSrav = new Button();
             txtAction = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            cmbOperations = new ComboBox();
             SuspendLayout();
-            // 
-            // btnCreate1
-            // 
-            btnCreate1.Location = new Point(109, 100);
-            btnCreate1.Name = "btnCreate1";
-            btnCreate1.Size = new Size(75, 23);
-            btnCreate1.TabIndex = 0;
-            btnCreate1.Text = "Создать";
-            btnCreate1.UseVisualStyleBackColor = true;
-            btnCreate1.Click += btnCreate1_Click;
-            // 
-            // btnCreate2
-            // 
-            btnCreate2.Location = new Point(109, 198);
-            btnCreate2.Name = "btnCreate2";
-            btnCreate2.Size = new Size(75, 23);
-            btnCreate2.TabIndex = 1;
-            btnCreate2.Text = "Создать";
-            btnCreate2.UseVisualStyleBackColor = true;
-            btnCreate2.Click += btnCreate2_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(23, 45);
+            label1.Location = new Point(27, 59);
             label1.Name = "label1";
             label1.Size = new Size(66, 15);
             label1.TabIndex = 2;
@@ -87,22 +64,24 @@
             // 
             // txtNum1
             // 
-            txtNum1.Location = new Point(95, 42);
+            txtNum1.Location = new Point(99, 56);
             txtNum1.Name = "txtNum1";
             txtNum1.Size = new Size(100, 23);
             txtNum1.TabIndex = 3;
+            txtNum1.TextChanged += txtNum1_TextChanged;
             // 
             // txtDen1
             // 
-            txtDen1.Location = new Point(95, 71);
+            txtDen1.Location = new Point(99, 85);
             txtDen1.Name = "txtDen1";
             txtDen1.Size = new Size(100, 23);
             txtDen1.TabIndex = 4;
+            txtDen1.TextChanged += txtDen1_TextChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 74);
+            label2.Location = new Point(16, 88);
             label2.Name = "label2";
             label2.Size = new Size(79, 15);
             label2.TabIndex = 5;
@@ -110,22 +89,24 @@
             // 
             // txtNum2
             // 
-            txtNum2.Location = new Point(95, 140);
+            txtNum2.Location = new Point(99, 154);
             txtNum2.Name = "txtNum2";
             txtNum2.Size = new Size(100, 23);
             txtNum2.TabIndex = 6;
+            txtNum2.TextChanged += txtNum2_TextChanged;
             // 
             // txtDen2
             // 
-            txtDen2.Location = new Point(95, 169);
+            txtDen2.Location = new Point(99, 183);
             txtDen2.Name = "txtDen2";
             txtDen2.Size = new Size(100, 23);
             txtDen2.TabIndex = 7;
+            txtDen2.TextChanged += txtDen2_TextChanged;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(23, 143);
+            label3.Location = new Point(27, 157);
             label3.Name = "label3";
             label3.Size = new Size(66, 15);
             label3.TabIndex = 8;
@@ -134,7 +115,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(12, 172);
+            label4.Location = new Point(16, 186);
             label4.Name = "label4";
             label4.Size = new Size(79, 15);
             label4.TabIndex = 9;
@@ -191,49 +172,9 @@
             txtFr2.Size = new Size(100, 23);
             txtFr2.TabIndex = 17;
             // 
-            // btnSum
-            // 
-            btnSum.Location = new Point(320, 45);
-            btnSum.Name = "btnSum";
-            btnSum.Size = new Size(143, 23);
-            btnSum.TabIndex = 18;
-            btnSum.Text = "Сложить дроби";
-            btnSum.UseVisualStyleBackColor = true;
-            btnSum.Click += btnSum_Click;
-            // 
-            // btnMinus
-            // 
-            btnMinus.Location = new Point(320, 77);
-            btnMinus.Name = "btnMinus";
-            btnMinus.Size = new Size(143, 23);
-            btnMinus.TabIndex = 19;
-            btnMinus.Text = "Вычесть из 1 дроби 2";
-            btnMinus.UseVisualStyleBackColor = true;
-            btnMinus.Click += btnMinus_Click;
-            // 
-            // btnUmn
-            // 
-            btnUmn.Location = new Point(320, 106);
-            btnUmn.Name = "btnUmn";
-            btnUmn.Size = new Size(143, 23);
-            btnUmn.TabIndex = 20;
-            btnUmn.Text = "Умножить 1 дробь на 2";
-            btnUmn.UseVisualStyleBackColor = true;
-            btnUmn.Click += bntUmn_Click;
-            // 
-            // btnDel
-            // 
-            btnDel.Location = new Point(320, 135);
-            btnDel.Name = "btnDel";
-            btnDel.Size = new Size(142, 23);
-            btnDel.TabIndex = 21;
-            btnDel.Text = "Разделить 1 дробь на 2";
-            btnDel.UseVisualStyleBackColor = true;
-            btnDel.Click += btnDel_Click;
-            // 
             // btnCleanNum1
             // 
-            btnCleanNum1.Location = new Point(201, 42);
+            btnCleanNum1.Location = new Point(205, 56);
             btnCleanNum1.Name = "btnCleanNum1";
             btnCleanNum1.Size = new Size(75, 23);
             btnCleanNum1.TabIndex = 22;
@@ -243,7 +184,7 @@
             // 
             // btnCleanDen1
             // 
-            btnCleanDen1.Location = new Point(201, 71);
+            btnCleanDen1.Location = new Point(205, 85);
             btnCleanDen1.Name = "btnCleanDen1";
             btnCleanDen1.Size = new Size(75, 23);
             btnCleanDen1.TabIndex = 23;
@@ -253,7 +194,7 @@
             // 
             // btnCleanNum2
             // 
-            btnCleanNum2.Location = new Point(201, 143);
+            btnCleanNum2.Location = new Point(205, 153);
             btnCleanNum2.Name = "btnCleanNum2";
             btnCleanNum2.Size = new Size(75, 23);
             btnCleanNum2.TabIndex = 24;
@@ -263,23 +204,13 @@
             // 
             // btnCleanDen2
             // 
-            btnCleanDen2.Location = new Point(201, 172);
+            btnCleanDen2.Location = new Point(205, 182);
             btnCleanDen2.Name = "btnCleanDen2";
             btnCleanDen2.Size = new Size(75, 23);
             btnCleanDen2.TabIndex = 25;
             btnCleanDen2.Text = "Очистить";
             btnCleanDen2.UseVisualStyleBackColor = true;
             btnCleanDen2.Click += btnCleanDen2_Click;
-            // 
-            // btnSrav
-            // 
-            btnSrav.Location = new Point(320, 164);
-            btnSrav.Name = "btnSrav";
-            btnSrav.Size = new Size(142, 23);
-            btnSrav.TabIndex = 26;
-            btnSrav.Text = "Сравнить дроби";
-            btnSrav.UseVisualStyleBackColor = true;
-            btnSrav.Click += btnSrav_Click;
             // 
             // txtAction
             // 
@@ -290,22 +221,62 @@
             txtAction.TabIndex = 27;
             txtAction.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 14F);
+            label8.Location = new Point(84, 9);
+            label8.Name = "label8";
+            label8.Size = new Size(123, 25);
+            label8.TabIndex = 28;
+            label8.Text = "Ввод дробей";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 14F);
+            label9.Location = new Point(348, 9);
+            label9.Name = "label9";
+            label9.Size = new Size(94, 25);
+            label9.TabIndex = 29;
+            label9.Text = "Действия";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 14F);
+            label10.Location = new Point(668, 9);
+            label10.Name = "label10";
+            label10.Size = new Size(67, 25);
+            label10.TabIndex = 30;
+            label10.Text = "Вывод";
+            // 
+            // cmbOperations
+            // 
+            cmbOperations.FormattingEnabled = true;
+            cmbOperations.Items.AddRange(new object[] { "+", "-", "*", "/", "Сравнить" });
+            cmbOperations.Location = new Point(334, 42);
+            cmbOperations.Name = "cmbOperations";
+            cmbOperations.Size = new Size(121, 23);
+            cmbOperations.TabIndex = 31;
+            cmbOperations.Text = "+";
+            cmbOperations.SelectedIndexChanged += cmbOperations_SelectedIndexChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1020, 251);
+            Controls.Add(cmbOperations);
+            Controls.Add(label10);
+            Controls.Add(label9);
+            Controls.Add(label8);
             Controls.Add(txtAction);
-            Controls.Add(btnSrav);
             Controls.Add(btnCleanDen2);
             Controls.Add(btnCleanNum2);
             Controls.Add(btnCleanDen1);
             Controls.Add(btnCleanNum1);
-            Controls.Add(btnDel);
-            Controls.Add(btnUmn);
-            Controls.Add(btnMinus);
-            Controls.Add(btnSum);
             Controls.Add(txtFr2);
             Controls.Add(txtFr1);
             Controls.Add(label7);
@@ -320,8 +291,6 @@
             Controls.Add(txtDen1);
             Controls.Add(txtNum1);
             Controls.Add(label1);
-            Controls.Add(btnCreate2);
-            Controls.Add(btnCreate1);
             Name = "Form1";
             Text = "Калькулятор дробей";
             ResumeLayout(false);
@@ -329,9 +298,6 @@
         }
 
         #endregion
-
-        private Button btnCreate1;
-        private Button btnCreate2;
         private Label label1;
         private TextBox txtNum1;
         private TextBox txtDen1;
@@ -346,15 +312,14 @@
         private Label label7;
         private TextBox txtFr1;
         private TextBox txtFr2;
-        private Button btnSum;
-        private Button btnMinus;
-        private Button btnUmn;
-        private Button btnDel;
         private Button btnCleanNum1;
         private Button btnCleanDen1;
         private Button btnCleanNum2;
         private Button btnCleanDen2;
-        private Button btnSrav;
         private Label txtAction;
+        private Label label8;
+        private Label label9;
+        private Label label10;
+        private ComboBox cmbOperations;
     }
 }

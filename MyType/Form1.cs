@@ -11,16 +11,13 @@ namespace MyType
             //Установка окна по середине экрана
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            //Отключим кнопки для действий с дробями
-            btnSum.Enabled = false;
-            btnMinus.Enabled = false;
-            btnDel.Enabled = false;
-            btnUmn.Enabled = false;
-            btnSrav.Enabled = false;
+            //Отключим кнопку для действий с дробями
+            cmbOperations.Enabled = false;
+
 
         }
 
-        private void btnCreate1_Click(object sender, EventArgs e)
+        private void create_fraction1()
         {
 
             try
@@ -34,15 +31,15 @@ namespace MyType
             }
             catch (FormatException)
             {
-                MessageBox.Show("Неверный ввод", "Ошибка");
+                //MessageBox.Show("Неверный ввод", "Ошибка");
             }
             catch (OverflowException)
             {
-                MessageBox.Show("Слишком большое число", "Ошибка");
+                //MessageBox.Show("Слишком большое число", "Ошибка");
             }
 
         }
-        private void btnCreate2_Click(object sender, EventArgs e)
+        private void create_fraction2()
         {
 
             try
@@ -55,52 +52,15 @@ namespace MyType
             }
             catch (FormatException)
             {
-                MessageBox.Show("Неверный ввод", "Ошибка");
+                //MessageBox.Show("Неверный ввод", "Ошибка");
             }
             catch (OverflowException)
             {
-                MessageBox.Show("Слишком большое число", "Ошибка");
+                //MessageBox.Show("Слишком большое число", "Ошибка");
             }
 
         }
 
-        private void btnShow1_Click(object sender, EventArgs e)
-        {
-            txtResult.Text = fraction_1.ToString();
-        }
-        private void btnShow2_Click(object sender, EventArgs e)
-        {
-            txtResult.Text = fraction_2.ToString();
-        }
-
-
-        private void btnSum_Click(object sender, EventArgs e)
-        {
-            Fraction res = fraction_1 + fraction_2;
-            txtResult.Text = res.ToString();
-            txtAction.Text = "Сложение";
-        }
-
-        private void btnMinus_Click(object sender, EventArgs e)
-        {
-            Fraction res = fraction_1 - fraction_2;
-            txtResult.Text = res.ToString();
-            txtAction.Text = "Вычитание";
-        }
-
-        private void bntUmn_Click(object sender, EventArgs e)
-        {
-            Fraction res = fraction_1 * fraction_2;
-            txtResult.Text = res.ToString();
-            txtAction.Text = "Умножение";
-        }
-
-        private void btnDel_Click(object sender, EventArgs e)
-        {
-            Fraction res = fraction_1 / fraction_2;
-            txtResult.Text = res.ToString();
-            txtAction.Text = "Деление";
-        }
         private void update()
         {
             if (isNullFraction(fraction_1) || isNullFraction(fraction_2))
@@ -125,21 +85,16 @@ namespace MyType
         {
             if (bl)
             {
-                btnSum.Enabled = true;
-                btnMinus.Enabled = true;
-                btnDel.Enabled = true;
-                btnUmn.Enabled = true;
-                btnSrav.Enabled = true;
+                cmbOperations.Enabled = true;
             }
             else
             {
-                btnSum.Enabled = false;
-                btnMinus.Enabled = false;
-                btnDel.Enabled = false;
-                btnUmn.Enabled = false;
-                btnSrav.Enabled = false;
+                cmbOperations.Enabled = false;
             }
         }
+
+
+
 
         private void btnCleanNum1_Click(object sender, EventArgs e)
         {
@@ -167,7 +122,150 @@ namespace MyType
             txtAction.Text = "Сравнение";
 
         }
+
+        private void btnExecute_Click(object sender, EventArgs e)
+        {
+            switch (cmbOperations.Text)
+            {
+                case "+":
+                    Fraction res1 = fraction_1 + fraction_2;
+                    txtResult.Text = res1.ToString();
+                    txtAction.Text = "Сложение";
+                    break;
+                case "-":
+                    Fraction res2 = fraction_1 - fraction_2;
+                    txtResult.Text = res2.ToString();
+                    txtAction.Text = "Вычитание";
+                    break;
+                case "*":
+                    Fraction res3 = fraction_1 * fraction_2;
+                    txtResult.Text = res3.ToString();
+                    txtAction.Text = "Умножение";
+                    break;
+                case "/":
+                    Fraction res4 = fraction_1 / fraction_2;
+                    txtResult.Text = res4.ToString();
+                    txtAction.Text = "Деление";
+                    break;
+                case "Сравнить":
+                    txtResult.Text = fraction_1 + fraction_1.sravn(fraction_2) + fraction_2;
+                    txtAction.Text = "Сравнение";
+                    break;
+                default:
+                    txtAction.Text = "Неизвестное действие";
+                    break;
+            }
+        }
+
+        private void switchOper()
+        {
+            if ((!isNullFraction(fraction_1)) && (!isNullFraction(fraction_2)))
+                switch (cmbOperations.Text)
+                {
+                    case "+":
+                        Fraction res1 = fraction_1 + fraction_2;
+                        txtResult.Text = res1.ToString();
+                        txtAction.Text = "Сложение";
+                        break;
+                    case "-":
+                        Fraction res2 = fraction_1 - fraction_2;
+                        txtResult.Text = res2.ToString();
+                        txtAction.Text = "Вычитание";
+                        break;
+                    case "*":
+                        Fraction res3 = fraction_1 * fraction_2;
+                        txtResult.Text = res3.ToString();
+                        txtAction.Text = "Умножение";
+                        break;
+                    case "/":
+                        Fraction res4 = fraction_1 / fraction_2;
+                        txtResult.Text = res4.ToString();
+                        txtAction.Text = "Деление";
+                        break;
+                    case "Сравнить":
+                        txtResult.Text = fraction_1 + fraction_1.sravn(fraction_2) + fraction_2;
+                        txtAction.Text = "Сравнение";
+                        break;
+                    default:
+                        txtAction.Text = "Неизвестное действие";
+                        break;
+                }
+        }
+        ////////////////////////////////////////////////////////////////
+        private void txtNum1_TextChanged(object sender, EventArgs e)
+        {
+            create_fraction1();
+            if ((!isNullFraction(fraction_1)) && (!isNullFraction(fraction_2)))
+            {
+                txtFr1.Text = fraction_1.ToString();
+            }
+            switchOper();
+        }
+
+        private void txtDen1_TextChanged(object sender, EventArgs e)
+        {
+            create_fraction1();
+            if ((!isNullFraction(fraction_1)) && (!isNullFraction(fraction_2)))
+            {
+                txtFr1.Text = fraction_1.ToString();
+            }
+            switchOper();
+        }
+
+        private void txtNum2_TextChanged(object sender, EventArgs e)
+        {
+            create_fraction2();
+            if ((!isNullFraction(fraction_1)) && (!isNullFraction(fraction_2)))
+            {
+                txtFr2.Text = fraction_2.ToString();
+            }
+            else
+            {
+                cleanOutput();
+            }
+            switchOper();
+        }
+
+        private void txtDen2_TextChanged(object sender, EventArgs e)
+        {
+            create_fraction2();
+            if ((!isNullFraction(fraction_1)) && (!isNullFraction(fraction_2)))
+            {
+                txtFr2.Text = fraction_2.ToString();
+            }
+            else
+            {
+                cleanOutput();
+            }
+            switchOper();
+        }
+
+        private void cmbOperations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switchOper();
+        }
+        private void cleanOutput()
+        {
+            if (isNullFraction(fraction_1))
+            {
+                txtFr1.Text = "";
+            }
+            else if (isNullFraction(fraction_2))
+            {
+                txtFr2.Text = "";
+            }
+
+            //    txtResult.Text = "";
+            //txtFr1.Text = "";
+            //txtFr2.Text = "";
+            //txtAction.Text = "";
+        }
+        ////////////////////////////////////////////////////////////////
     }
+
+
+
+
     class Fraction //Дробь
     {
         private int numerator; //Числитель
