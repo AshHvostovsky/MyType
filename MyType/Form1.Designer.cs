@@ -51,12 +51,14 @@
             label9 = new Label();
             label10 = new Label();
             cmbOperations = new ComboBox();
+            label11 = new Label();
+            label12 = new Label();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(27, 59);
+            label1.Location = new Point(14, 64);
             label1.Name = "label1";
             label1.Size = new Size(66, 15);
             label1.TabIndex = 2;
@@ -64,7 +66,7 @@
             // 
             // txtNum1
             // 
-            txtNum1.Location = new Point(99, 56);
+            txtNum1.Location = new Point(86, 61);
             txtNum1.Name = "txtNum1";
             txtNum1.Size = new Size(100, 23);
             txtNum1.TabIndex = 3;
@@ -72,7 +74,7 @@
             // 
             // txtDen1
             // 
-            txtDen1.Location = new Point(99, 85);
+            txtDen1.Location = new Point(86, 90);
             txtDen1.Name = "txtDen1";
             txtDen1.Size = new Size(100, 23);
             txtDen1.TabIndex = 4;
@@ -81,7 +83,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(16, 88);
+            label2.Location = new Point(3, 93);
             label2.Name = "label2";
             label2.Size = new Size(79, 15);
             label2.TabIndex = 5;
@@ -89,7 +91,7 @@
             // 
             // txtNum2
             // 
-            txtNum2.Location = new Point(99, 154);
+            txtNum2.Location = new Point(86, 150);
             txtNum2.Name = "txtNum2";
             txtNum2.Size = new Size(100, 23);
             txtNum2.TabIndex = 6;
@@ -97,7 +99,7 @@
             // 
             // txtDen2
             // 
-            txtDen2.Location = new Point(99, 183);
+            txtDen2.Location = new Point(86, 179);
             txtDen2.Name = "txtDen2";
             txtDen2.Size = new Size(100, 23);
             txtDen2.TabIndex = 7;
@@ -106,7 +108,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(27, 157);
+            label3.Location = new Point(14, 153);
             label3.Name = "label3";
             label3.Size = new Size(66, 15);
             label3.TabIndex = 8;
@@ -115,7 +117,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(16, 186);
+            label4.Location = new Point(3, 182);
             label4.Name = "label4";
             label4.Size = new Size(79, 15);
             label4.TabIndex = 9;
@@ -123,7 +125,7 @@
             // 
             // txtResult
             // 
-            txtResult.Location = new Point(649, 119);
+            txtResult.Location = new Point(494, 114);
             txtResult.Name = "txtResult";
             txtResult.ReadOnly = true;
             txtResult.Size = new Size(100, 23);
@@ -132,7 +134,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(583, 122);
+            label5.Location = new Point(428, 117);
             label5.Name = "label5";
             label5.Size = new Size(60, 15);
             label5.TabIndex = 12;
@@ -141,7 +143,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(592, 40);
+            label6.Location = new Point(437, 32);
             label6.Name = "label6";
             label6.Size = new Size(51, 15);
             label6.TabIndex = 14;
@@ -150,7 +152,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(592, 85);
+            label7.Location = new Point(437, 77);
             label7.Name = "label7";
             label7.Size = new Size(51, 15);
             label7.TabIndex = 15;
@@ -158,7 +160,7 @@
             // 
             // txtFr1
             // 
-            txtFr1.Location = new Point(649, 37);
+            txtFr1.Location = new Point(494, 29);
             txtFr1.Name = "txtFr1";
             txtFr1.ReadOnly = true;
             txtFr1.Size = new Size(100, 23);
@@ -166,7 +168,7 @@
             // 
             // txtFr2
             // 
-            txtFr2.Location = new Point(649, 81);
+            txtFr2.Location = new Point(494, 73);
             txtFr2.Name = "txtFr2";
             txtFr2.ReadOnly = true;
             txtFr2.Size = new Size(100, 23);
@@ -174,7 +176,7 @@
             // 
             // btnCleanNum1
             // 
-            btnCleanNum1.Location = new Point(205, 56);
+            btnCleanNum1.Location = new Point(192, 61);
             btnCleanNum1.Name = "btnCleanNum1";
             btnCleanNum1.Size = new Size(75, 23);
             btnCleanNum1.TabIndex = 22;
@@ -184,7 +186,7 @@
             // 
             // btnCleanDen1
             // 
-            btnCleanDen1.Location = new Point(205, 85);
+            btnCleanDen1.Location = new Point(192, 90);
             btnCleanDen1.Name = "btnCleanDen1";
             btnCleanDen1.Size = new Size(75, 23);
             btnCleanDen1.TabIndex = 23;
@@ -194,7 +196,7 @@
             // 
             // btnCleanNum2
             // 
-            btnCleanNum2.Location = new Point(205, 153);
+            btnCleanNum2.Location = new Point(192, 149);
             btnCleanNum2.Name = "btnCleanNum2";
             btnCleanNum2.Size = new Size(75, 23);
             btnCleanNum2.TabIndex = 24;
@@ -204,7 +206,7 @@
             // 
             // btnCleanDen2
             // 
-            btnCleanDen2.Location = new Point(205, 182);
+            btnCleanDen2.Location = new Point(192, 178);
             btnCleanDen2.Name = "btnCleanDen2";
             btnCleanDen2.Size = new Size(75, 23);
             btnCleanDen2.TabIndex = 25;
@@ -215,7 +217,7 @@
             // txtAction
             // 
             txtAction.AutoSize = true;
-            txtAction.Location = new Point(668, 63);
+            txtAction.Location = new Point(513, 55);
             txtAction.Name = "txtAction";
             txtAction.Size = new Size(0, 15);
             txtAction.TabIndex = 27;
@@ -225,7 +227,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 14F);
-            label8.Location = new Point(84, 9);
+            label8.Location = new Point(77, 3);
             label8.Name = "label8";
             label8.Size = new Size(123, 25);
             label8.TabIndex = 28;
@@ -235,7 +237,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 14F);
-            label9.Location = new Point(348, 9);
+            label9.Location = new Point(293, 83);
             label9.Name = "label9";
             label9.Size = new Size(94, 25);
             label9.TabIndex = 29;
@@ -245,7 +247,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 14F);
-            label10.Location = new Point(668, 9);
+            label10.Location = new Point(513, 1);
             label10.Name = "label10";
             label10.Size = new Size(67, 25);
             label10.TabIndex = 30;
@@ -255,19 +257,39 @@
             // 
             cmbOperations.FormattingEnabled = true;
             cmbOperations.Items.AddRange(new object[] { "+", "-", "*", "/", "Сравнить" });
-            cmbOperations.Location = new Point(334, 42);
+            cmbOperations.Location = new Point(279, 114);
             cmbOperations.Name = "cmbOperations";
             cmbOperations.Size = new Size(121, 23);
             cmbOperations.TabIndex = 31;
             cmbOperations.Text = "+";
             cmbOperations.SelectedIndexChanged += cmbOperations_SelectedIndexChanged;
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(110, 43);
+            label11.Name = "label11";
+            label11.Size = new Size(51, 15);
+            label11.TabIndex = 32;
+            label11.Text = "Дробь 1";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(110, 132);
+            label12.Name = "label12";
+            label12.Size = new Size(51, 15);
+            label12.TabIndex = 33;
+            label12.Text = "Дробь 2";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(1020, 251);
+            ClientSize = new Size(610, 218);
+            Controls.Add(label12);
+            Controls.Add(label11);
             Controls.Add(cmbOperations);
             Controls.Add(label10);
             Controls.Add(label9);
@@ -321,5 +343,7 @@
         private Label label9;
         private Label label10;
         private ComboBox cmbOperations;
+        private Label label11;
+        private Label label12;
     }
 }

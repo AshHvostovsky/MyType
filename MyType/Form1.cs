@@ -31,10 +31,16 @@ namespace MyType
             }
             catch (FormatException)
             {
+                txtFr1.Text = "";
+                txtResult.Text = "";
+                update();
                 //MessageBox.Show("Неверный ввод", "Ошибка");
             }
             catch (OverflowException)
             {
+                txtFr1.Text = "";
+                txtResult.Text = "";
+                update();
                 //MessageBox.Show("Слишком большое число", "Ошибка");
             }
 
@@ -52,10 +58,16 @@ namespace MyType
             }
             catch (FormatException)
             {
+                    txtFr2.Text = "";
+                    txtResult.Text = "";
+                    update();
                 //MessageBox.Show("Неверный ввод", "Ошибка");
             }
             catch (OverflowException)
             {
+                    txtFr2.Text = "";
+                    txtResult.Text = "";
+                    update();
                 //MessageBox.Show("Слишком большое число", "Ошибка");
             }
 
@@ -63,7 +75,7 @@ namespace MyType
 
         private void update()
         {
-            if (isNullFraction(fraction_1) || isNullFraction(fraction_2))
+            if ((((!isNormalInput1()) || (!isNormalInput2())) || (isNullFraction(fraction_1) || isNullFraction(fraction_2)))) //Если дроби не существуют, то закрываем действия
             {
                 setActiveBtn(false);
             }
@@ -116,50 +128,11 @@ namespace MyType
             txtDen2.Text = "";
         }
 
-        private void btnSrav_Click(object sender, EventArgs e)
-        {
-            txtResult.Text = fraction_1 + fraction_1.sravn(fraction_2) + fraction_2;
-            txtAction.Text = "Сравнение";
 
-        }
-
-        private void btnExecute_Click(object sender, EventArgs e)
-        {
-            switch (cmbOperations.Text)
-            {
-                case "+":
-                    Fraction res1 = fraction_1 + fraction_2;
-                    txtResult.Text = res1.ToString();
-                    txtAction.Text = "Сложение";
-                    break;
-                case "-":
-                    Fraction res2 = fraction_1 - fraction_2;
-                    txtResult.Text = res2.ToString();
-                    txtAction.Text = "Вычитание";
-                    break;
-                case "*":
-                    Fraction res3 = fraction_1 * fraction_2;
-                    txtResult.Text = res3.ToString();
-                    txtAction.Text = "Умножение";
-                    break;
-                case "/":
-                    Fraction res4 = fraction_1 / fraction_2;
-                    txtResult.Text = res4.ToString();
-                    txtAction.Text = "Деление";
-                    break;
-                case "Сравнить":
-                    txtResult.Text = fraction_1 + fraction_1.sravn(fraction_2) + fraction_2;
-                    txtAction.Text = "Сравнение";
-                    break;
-                default:
-                    txtAction.Text = "Неизвестное действие";
-                    break;
-            }
-        }
 
         private void switchOper()
         {
-            if ((!isNullFraction(fraction_1)) && (!isNullFraction(fraction_2)))
+            if ((isNormalInput1() && isNormalInput2()) && (!isNullFraction(fraction_1)) && (!isNullFraction(fraction_2)))
                 switch (cmbOperations.Text)
                 {
                     case "+":
@@ -195,33 +168,34 @@ namespace MyType
         private void txtNum1_TextChanged(object sender, EventArgs e)
         {
             create_fraction1();
-            if ((!isNullFraction(fraction_1)) && (!isNullFraction(fraction_2)))
+            if (!isNullFraction(fraction_1) && isNormalInput1())
             {
                 txtFr1.Text = fraction_1.ToString();
+                
             }
             switchOper();
+
         }
 
         private void txtDen1_TextChanged(object sender, EventArgs e)
         {
             create_fraction1();
-            if ((!isNullFraction(fraction_1)) && (!isNullFraction(fraction_2)))
+            if (!isNullFraction(fraction_1) && isNormalInput1())
             {
                 txtFr1.Text = fraction_1.ToString();
+                
             }
             switchOper();
+
         }
 
         private void txtNum2_TextChanged(object sender, EventArgs e)
         {
             create_fraction2();
-            if ((!isNullFraction(fraction_1)) && (!isNullFraction(fraction_2)))
+            if ((!isNullFraction(fraction_2)) && isNormalInput2())
             {
                 txtFr2.Text = fraction_2.ToString();
-            }
-            else
-            {
-                cleanOutput();
+                
             }
             switchOper();
         }
@@ -229,13 +203,10 @@ namespace MyType
         private void txtDen2_TextChanged(object sender, EventArgs e)
         {
             create_fraction2();
-            if ((!isNullFraction(fraction_1)) && (!isNullFraction(fraction_2)))
+            if (!isNullFraction(fraction_2) && isNormalInput2())
             {
                 txtFr2.Text = fraction_2.ToString();
-            }
-            else
-            {
-                cleanOutput();
+                
             }
             switchOper();
         }
@@ -244,21 +215,39 @@ namespace MyType
         {
             switchOper();
         }
-        private void cleanOutput()
+        private bool isNormalInput1()
         {
-            if (isNullFraction(fraction_1))
+            try
             {
-                txtFr1.Text = "";
+                int.Parse(txtNum1.Text);
+                int.Parse(txtDen1.Text);
+                return true;
             }
-            else if (isNullFraction(fraction_2))
+            catch (FormatException)
             {
-                txtFr2.Text = "";
+                return false;
             }
-
-            //    txtResult.Text = "";
-            //txtFr1.Text = "";
-            //txtFr2.Text = "";
-            //txtAction.Text = "";
+            catch (OverflowException)
+            {
+                return false;
+            }
+        }
+        private bool isNormalInput2()
+        {
+            try
+            {
+                int.Parse(txtNum2.Text);
+                int.Parse(txtDen2.Text);
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+            catch (OverflowException)
+            {
+                return false;
+            }
         }
         ////////////////////////////////////////////////////////////////
     }
@@ -316,6 +305,8 @@ namespace MyType
         {
             if (numerator == 0 || denominator == 0)
                 return "0";
+            else if (denominator == 1)
+                return numerator.ToString();
             else
                 return $"{numerator}/{denominator}";
         }
